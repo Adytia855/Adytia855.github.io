@@ -49,12 +49,20 @@
       <div class="container">
         <div class="row align-items-center text-start">
           <div class="col-lg-6">
-            <h4 class="gold intro"></h4>
+            <h4 class="gold intro">
+
+            </h4>
             <span>
-              <h1 class="intro-a"></h1>
-              <h1 class="gold intro-b"></h1>
+              <h1 class="intro-a">
+
+              </h1>
+              <h1 class="gold intro-b">
+
+              </h1>
             </span>
-            <p class="intro-c"></p>
+            <p class="intro-c">
+
+            </p>
             <a href="#contact" class="hire gold btn btn-outline-warning">Hire Me</a>
             <a href="#projects" class="project gold btn btn-secondary">My Projects</a>
           </div>
@@ -184,14 +192,14 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
     <script>
       gsap.registerPlugin(TextPlugin);
-      gsap.to('.intro', { duration: 1, text: 'Hello !'});
-      gsap.to('.intro-a', { duration: 1, delay: 1, text: "I'm Adytia Lorem ipsum, dolor sit "});
-      gsap.to('.intro-b', { duration: 1, delay: 2, text: "amet consectetur adipisicing elit."});
-      gsap.to('.intro-c', { duration: 1, delay: 3, text: "Web Developer Lorem ipsum dolor sit amet, consectetur adipisicing elit.Earum fuga vero nobis tempore, nesciunt?"});
+      gsap.to('.intro', { duration: 2, text: 'Hello !', y: 0, x: 0});
+      gsap.to('.intro-a', { duration: 3,  text: "I'm Adytia Lorem ipsum, dolor sit "});
+      gsap.to('.intro-b', { duration: 3,  text: "amet consectetur adipisicing elit."});
+      gsap.to('.intro-c', { duration: 3,  text: "Web Developer Lorem ipsum dolor sit amet, consectetur adipisicing elit.Earum fuga vero nobis tempore, nesciunt?"});
       gsap.from('.hero img', { duration: 3, opacity: 0});
       gsap.from('.navbar', {duration: 1.5, y: '-100', opacity: 0});
-      gsap.from('.hire', {duration: 1.5, delay: 4,  y: '100', opacity: 0});
-      gsap.from('.project', {duration: 1.5, delay: 4.5, y: '100', opacity: 0});
+      gsap.from('.hire', {duration: 1.5, delay: 3,  y: '100', opacity: 0});
+      gsap.from('.project', {duration: 1.5, delay: 3.5, y: '100', opacity: 0});
     </script>
 
     <!-- My Javascript -->
