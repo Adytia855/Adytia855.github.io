@@ -148,20 +148,28 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-md-6">
-            <form >
+            <div class="alert alert-warning alert-dismissible fade show my-alert d-none" role="alert">
+              <strong>Thank you!</strong> Your message has been sent.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <form name='portfolio-form'>
               <div class="mb-3" data-aos="fade-right" data-aos-delay="300">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name">
+                <input type="text" class="form-control" id="name" name="name">
               </div>
               <div class="mb-3" data-aos="fade-right" data-aos-delay="400">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email">
+                <input type="email" class="form-control" id="email" name="email">
               </div>
               <div class="mb-3" data-aos="fade-right" data-aos-delay="500">
                 <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" id="message" rows="3"></textarea>
+                <textarea class="form-control" id="message" rows="3" name="message"></textarea>
               </div>
-              <button type="submit" class="gold btn btn-secondary" data-aos="fade-up" data-aos-delay="600">Send</button>
+              <button type="submit" class="gold btn btn-secondary btn-submit" data-aos="fade-up" data-aos-delay="600">Send</button>
+              <button class="btn btn-secondary btn-loading d-none" type="button" disabled>
+                <span class="spinner-border text-warning" aria-hidden="true"></span>
+                <span class="visually-hidden" role="status">Loading...</span>
+              </button>
             </form>
           </div>
         </div>
@@ -212,6 +220,31 @@
           navbar.classList.remove('navbar-scrolled');
         }
       });
+    </script>
+
+    <!-- Google Sheets Script -->
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbznXQXy9yk8T_FgdOJMHMVWgeB-3itBHj7cUgZTh0cMBWyWWCeZjjgRDAwWt7noAYU3TQ/exec'
+      const form = document.forms['portfolio-form'];
+      const myAlert = document.querySelector('.my-alert');
+      const loading = form.querySelector('.btn-loading');
+      const submit = form.querySelector('.btn-submit');
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        loading.classList.toggle('d-none');
+        submit.classList.toggle('d-none');
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+            loading.classList.toggle('d-none');
+            submit.classList.toggle('d-none');
+            myAlert.classList.toggle('d-none');
+            form.reset(); 
+            console.log('Success!', response)
+          })
+          .catch(error => console.error('Error!', error.message))
+      })
     </script>
   </body>
 </html>
