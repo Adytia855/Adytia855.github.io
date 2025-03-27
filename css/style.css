@@ -49,3 +49,9 @@ span h1 {
 .card {
   border: none;
 }
+
+#projects .card ul {
+  margin: 0; /* Remove margin */
+  padding-left: 15px; /* Optional: Adjust padding for better alignment */
+  padding-bottom: 20px; /* Optional: Adjust padding for better alignment */
+}
